@@ -2,13 +2,40 @@
 <ion-view view-title="Game">
   <ion-content>
     <div id="game-view">
-      <div class="row">
-        <div class="col col-80 col-offset-10"><img src="./img/placeholder.jpg"></div>
+      <h1>Bot or Not?</h1>
+      <div ng-show="show == $index" ng-repeat="image in images" class="container">
+        <div class="row">
+          <div class="col col-80 col-offset-10"><img src="{{image.url}}"></div>
+        </div>
+        <div class="row">
+          <button ng-click="human($index)" class="button button-large button-energized">Human</button>
+          <button ng-click="robot($index)" class="button button-large button-balanced">Robot</button>
+        </div>
       </div>
-      <div class="row">
-        <button class="button button-large button-energized">Human</button>
-        <button class="button button-large button-balanced">Robot</button>
-      </div>
+      <script id="tab-game-modal.html" type="text/ng-template">
+        <ion-modal-view class="my-modal-view">
+          <ion-header-bar>Score: {{score}}</ion-header-bar>
+          <ion-content ng-repeat="image in images" ng-show="show == $index">
+            <div class="row">
+              <h1>You answered: {{choice}}</h1>
+            </div>
+            <div class="row">
+              <h1>The answer is: {{image.hof}}</h1>
+            </div>
+            <div class="row">
+              <h2>{{result}}</h2>
+            </div>
+            <div class="row">
+              <h3>{{image.des}}</h3>
+            </div>
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <button ng-click="nextImage()" class="button">Next</button>
+              </div>
+            </div>
+          </ion-content>
+        </ion-modal-view>
+      </script>
     </div>
   </ion-content>
 </ion-view>

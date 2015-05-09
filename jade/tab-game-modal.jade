@@ -1,0 +1,15 @@
+script(id="tab-game-modal.html" type="text/ng-template")
+  ion-modal-view.my-modal-view
+    ion-header-bar Score: {{score}}
+    ion-content(ng-repeat='image in images' ng-show='show == $index')
+      .row
+        h1 You answered: {{choice}}
+      .row
+        h1 The answer is: {{image.hof}}
+      .row
+        h2 {{result}}
+      .row
+        h3 {{image.des}}
+      .row
+        .col.col-80.col-offset-10
+          button.button(ng-click='nextImage()') Next

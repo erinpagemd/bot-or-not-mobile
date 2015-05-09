@@ -1,0 +1,25 @@
+
+<script id="tab-game-modal.html" type="text/ng-template">
+  <ion-modal-view class="my-modal-view">
+    <ion-header-bar>Score: {{score}}</ion-header-bar>
+    <ion-content ng-repeat="image in images" ng-show="show == $index">
+      <div class="row">
+        <h1>You answered: {{choice}}</h1>
+      </div>
+      <div class="row">
+        <h1>The answer is: {{image.hof}}</h1>
+      </div>
+      <div class="row">
+        <h2>{{result}}</h2>
+      </div>
+      <div class="row">
+        <h3>{{image.des}}</h3>
+      </div>
+      <div class="row">
+        <div class="col col-80 col-offset-10">
+          <button ng-click="nextImage()" class="button">Next</button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>

@@ -21,7 +21,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+.my-modal-view {
+
+  button {
+    width: 100%;
+  }
+
+  h3 {
+    color: red;
+  }
+}
+
 #game-view {
+  text-align: center;
 
   img {
     max-width: 300px;
@@ -34,6 +47,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     margin: 2%;
     width: 100%;
   }
+
 }
 
 #home-view {

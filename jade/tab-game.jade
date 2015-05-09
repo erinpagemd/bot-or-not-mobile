@@ -1,9 +1,13 @@
 ion-view(view-title='Game')
   ion-content
     #game-view
-      .row
-        .col.col-80.col-offset-10
-          img(src='./img/placeholder.jpg')
-      .row
-        button.button.button-large.button-energized Human
-        button.button.button-large.button-balanced Robot
+      h1 Bot or Not?
+      .container(ng-show='show == $index' ng-repeat='image in images')
+        .row
+          .col.col-80.col-offset-10
+            img(src='{{image.url}}')
+        .row
+          button.button.button-large.button-energized(ng-click='human($index)') Human
+          button.button.button-large.button-balanced(ng-click='robot($index)') Robot
+      
+      include tab-game-modal

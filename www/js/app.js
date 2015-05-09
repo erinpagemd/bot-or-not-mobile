@@ -42,8 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/home',
     views: {
       'tab-home': {
-        templateUrl: 'templates/tab-home.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/tab-home.html'
       }
     }
   })
@@ -72,7 +71,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-game': {
         templateUrl: 'templates/tab-game.html',
-        controller: 'AccountCtrl'
+        controller: 'GameCtrl'
       }
     }
   });
