@@ -1,0 +1,14 @@
+{
+  "name": "bot-or-not-mobile",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "jade",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "jade/**/*",
+    "!www/lib/**/*"
+  ]
+}
