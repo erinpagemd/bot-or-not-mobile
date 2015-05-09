@@ -7675,6 +7675,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+#results-view button {
+  width: 100%; }
+
 .my-modal-view button {
   width: 100%; }
 .my-modal-view h3 {
