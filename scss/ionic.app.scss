@@ -21,13 +21,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+#game-view {
+
+  img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10%;
+    margin: 5%;
+  }
+
+  button {
+    margin: 2%;
+    width: 100%;
+  }
+}
+
 #home-view {
   padding: 25% 10% 50%;
   background-image: url('../img/home.jpg');
   background-repeat: no-repeat;
 
-  button {
+  a {
     margin: 70% 0 0;
+    width: 100%;
+    padding: 5%;
   }
 
 }

@@ -7675,9 +7675,20 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+#game-view img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 10%;
+  margin: 5%; }
+#game-view button {
+  margin: 2%;
+  width: 100%; }
+
 #home-view {
   padding: 25% 10% 50%;
   background-image: url('../img/home.jpg');
   background-repeat: no-repeat; }
-  #home-view button {
-    margin: 70% 0 0; }
+  #home-view a {
+    margin: 70% 0 0;
+    width: 100%;
+    padding: 5%; }
