@@ -1,6 +1,6 @@
 angular
 .module('starter.controllers', [])
-.controller('ResultsCtrl', function($scope, $rootScope, $location, $state){
+.controller('ResultsCtrl', function($scope, $rootScope, ArrayFactory, $location, $state){
 
   if ($rootScope.score < 30) {
     $scope.message = 'Meh'
@@ -11,11 +11,12 @@ angular
 
   $scope.startOver = function (){
     $state.go('tab.home')
+    $rootScope.images = ArrayFactory;
   }
 })
 .controller('GameCtrl', function($scope, ArrayFactory, $location, $state, $rootScope, $ionicModal) {
 
-  $scope.images = ArrayFactory;
+  $scope.images = $rootScope.images;
   $scope.turn = 0;
   $scope.show = 0;
   $scope.choice = 'none';
@@ -33,7 +34,7 @@ angular
     $scope.modal.hide();
     $scope.show += 1;
     $scope.turn += 1;
-    if ($scope.turn === 5) {
+    if ($scope.turn === 3) {
       $state.go('tab.results')
     }
   }
