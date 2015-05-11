@@ -11,12 +11,11 @@ angular
 
   $scope.startOver = function (){
     $state.go('tab.home')
-    $rootScope.images = ArrayFactory;
   }
 })
 .controller('GameCtrl', function($scope, ArrayFactory, $location, $state, $rootScope, $ionicModal) {
 
-  $scope.images = $rootScope.images;
+  $scope.images = ArrayFactory;
   $scope.turn = 0;
   $scope.show = 0;
   $scope.choice = 'none';

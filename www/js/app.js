@@ -71,7 +71,3 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/tab/home');
 
 })
-.run(function(ArrayFactory, $rootScope){
-  $rootScope.images = ArrayFactory;
-
-});
