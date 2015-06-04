@@ -1,13 +1,13 @@
 script(id="tab-game-modal.html" type="text/ng-template")
   ion-modal-view.my-modal-view
-    ion-header-bar Score: {{score}}
-    ion-content(ng-repeat='image in images' ng-show='show == $index')
+    ion-header-bar Score: {{game.score}}
+    ion-content(ng-repeat='image in game.images' ng-show='game.show == $index')
       .row
-        h1 You answered: {{choice}}
+        h1 You answered: {{game.choice}}
       .row
         h1 The answer is: {{image.hof}}
       .row
-        h2 {{result}}
+        h2 {{game.result}}
       .row
         h3 {{image.des}}
       .row

@@ -2,7 +2,7 @@ ion-view(view-title='Game')
   ion-content
     #game-view
       h1 Bot or Not?
-      .container(ng-show='show == $index' ng-repeat='image in images')
+      .container(ng-show='game.show == $index' ng-repeat='image in game.images')
         .row
           .col.col-80.col-offset-10
             img(src='{{image.url}}')

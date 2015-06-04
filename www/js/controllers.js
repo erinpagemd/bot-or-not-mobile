@@ -1,26 +1,26 @@
 angular
 .module('starter.controllers', [])
-.controller('ResultsCtrl', function($scope, $rootScope, ArrayFactory, $location, $state){
+.controller('HomeCtrl', function($scope, $state, GameService){
+  $scope.newGame = function(){
+    GameService.newGame();
+    $state.go('tab.game');
+  }
+})
+.controller('ResultsCtrl', function($scope, $rootScope, $state, GameService){
+  $scope.game = GameService;
 
-  if ($rootScope.score < 30) {
+  if ($scope.game.score < 30) {
     $scope.message = 'Meh'
   } else {
     $scope.message = 'You may be the next Alan Turing!'
   }
 
-
   $scope.startOver = function (){
     $state.go('tab.home')
   }
 })
-.controller('GameCtrl', function($scope, ArrayFactory, $location, $state, $rootScope, $ionicModal) {
-
-  $scope.images = ArrayFactory;
-  $scope.turn = 0;
-  $scope.show = 0;
-  $scope.choice = 'none';
-  $scope.result = 'none';
-  $rootScope.score = 0;
+.controller('GameCtrl', function($scope, $state, GameService, $rootScope, $ionicModal, $sce) {
+  $scope.game = GameService;
 
   $ionicModal.fromTemplateUrl('tab-game-modal.html', {
     scope: $scope,
@@ -31,31 +31,31 @@ angular
 
   $scope.nextImage = function (){
     $scope.modal.hide();
-    $scope.show += 1;
-    $scope.turn += 1;
-    if ($scope.turn === 3) {
+    $scope.game.show += 1;
+    $scope.game.turn += 1;
+    if ($scope.game.turn === 5) {
       $state.go('tab.results')
     }
   }
 
   $scope.human = function ($index){
     $scope.modal.show();
-    $scope.choice = 'Human'
+    $scope.game.choice = 'Human'
     comparisonResult($index);
   }
 
   $scope.robot = function ($index){
     $scope.modal.show();
-    $scope.choice = 'Robot'
+    $scope.game.choice = 'Robot'
     comparisonResult($index);
   }
 
   function comparisonResult ($index) {
-    if ($scope.choice === $scope.images[$index].hof) {
-      $scope.result = 'Correct! You earned 10 points!'
-      $rootScope.score += 10
+    if ($scope.game.choice === $scope.game.images[$index].hof) {
+      $scope.game.result = 'Correct! You earned 10 points!'
+      $scope.game.score += 10
     } else {
-      $scope.result = 'Better luck next time...'
+      $scope.game.result = 'Better luck next time...'
     }
   }
 

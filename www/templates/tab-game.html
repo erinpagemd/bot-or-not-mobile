@@ -3,7 +3,7 @@
   <ion-content>
     <div id="game-view">
       <h1>Bot or Not?</h1>
-      <div ng-show="show == $index" ng-repeat="image in images" class="container">
+      <div ng-show="game.show == $index" ng-repeat="image in game.images" class="container">
         <div class="row">
           <div class="col col-80 col-offset-10"><img src="{{image.url}}"></div>
         </div>
@@ -14,16 +14,16 @@
       </div>
       <script id="tab-game-modal.html" type="text/ng-template">
         <ion-modal-view class="my-modal-view">
-          <ion-header-bar>Score: {{score}}</ion-header-bar>
-          <ion-content ng-repeat="image in images" ng-show="show == $index">
+          <ion-header-bar>Score: {{game.score}}</ion-header-bar>
+          <ion-content ng-repeat="image in game.images" ng-show="game.show == $index">
             <div class="row">
-              <h1>You answered: {{choice}}</h1>
+              <h1>You answered: {{game.choice}}</h1>
             </div>
             <div class="row">
               <h1>The answer is: {{image.hof}}</h1>
             </div>
             <div class="row">
-              <h2>{{result}}</h2>
+              <h2>{{game.result}}</h2>
             </div>
             <div class="row">
               <h3>{{image.des}}</h3>

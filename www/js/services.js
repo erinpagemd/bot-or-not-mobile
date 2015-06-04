@@ -1,7 +1,8 @@
 angular
 .module('starter.services', [])
-.service('ArrayFactory', [function ArrayFactory(){
-  var images = [
+.service('GameService', function() {
+
+  this.imageSet = [
     {
       url: 'img/human/Anastasia.png',
       hof: 'Human',
@@ -122,12 +123,17 @@ angular
       hof: 'Robot',
       des: 'YangYang is a life-size humanoid robot modeled after Sarah Palin and able to exhibit human facial expressions.'
     }
-  ]
+  ];
 
-  this.images = images
+  this.newGame = function () {
+    this.choice = 'none';
+    this.result = 'none';
+    this.score = 0;
+    this.show = 0;
+    this.turn = 0;
+    this.images = _.sample(this.imageSet, 5);
+  };
 
-  this.images = _.shuffle(this.images)
-  this.images = _.sample(images, 5)
-
-  return this.images
-}]);
+  this.newGame()
+  return this
+});
